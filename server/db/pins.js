@@ -5,7 +5,14 @@ var mongoose = require('mongoose');
 
 var pinsSchema = new mongoose.Schema({
 	id: Number,
-	value: String
+	title: String,
+	lat: String,
+	lng: String,
+	img: String,
+	description: String,
+	DateFrom: String,
+	DateUntil: String
+
 });
 
 module.exports = mongoose.model('Pins', pinsSchema);
