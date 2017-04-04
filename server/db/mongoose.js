@@ -3,6 +3,8 @@
  */
 var mongoose    = require('mongoose');
 
+mongoose.connect('mongodb://Avraam:66292400Aa@ds137110.mlab.com:37110/pinkeys');
+
 var db = mongoose.connection;
 
 db.on('error', function (err) {
