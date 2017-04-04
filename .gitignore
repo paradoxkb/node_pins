@@ -1,4 +1,3 @@
 /build/img
 /node_modules
 /.idea
-/server/db/mongoose.js
