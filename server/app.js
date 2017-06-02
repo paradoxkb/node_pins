@@ -71,7 +71,6 @@ function deleteImg( img ) {
 				fs.unlink(item, function(err){
 					if (err) throw err;
 
-					console.log(item + " deleted");
 				});
 			}
 		});
@@ -234,7 +233,6 @@ app.get('/users', (req, res) => {
 
 app.post('/singlepin/:target', (req, res) => {
 	const target = req.params.target;
-	console.log(target);
 	Pins.find({id: target}, function (err, pins) {
 		if(!err) {
 			res.send(pins);
@@ -246,7 +244,6 @@ app.post('/singlepin/:target', (req, res) => {
 
 app.post('/imagepin/:target', (req, res) => {
 	const target = req.params.target;
-	console.log(target);
 	Pins.find({id: target}, function (err, pins) {
 		if(!err) {
 			res.send(pins[0].img);
