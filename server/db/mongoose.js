@@ -3,6 +3,8 @@
  */
 var mongoose    = require('mongoose');
 
+mongoose.Promise = global.Promise;
+
 mongoose.connect('mongodb://Avraam:66292400Aa@ds137110.mlab.com:37110/pinkeys');
 
 var db = mongoose.connection;
