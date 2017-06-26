@@ -260,6 +260,8 @@ app.post('/updatestamp/:target', (req, res) => {
 				date.month = '0' + date.month
 			}
 
+			date = date.day + '/' + date.month + '/' + date.year;
+
 			pins.timestamp = date;
 
 			pins.save(function(err, updatedPin) {
