@@ -10,19 +10,18 @@ var pinsSchema = new mongoose.Schema({
 	lng: String,
 	img: String,
 	description: String,
-	DateFrom: String,
-	DateUntil: String,
+	dateFrom: String,
+	dateUntil: String,
+	timestamp: String,
 	author: String
-
 });
 
 pinsSchema.statics.getPinsByAuthor = function(author, cb) {
-
 	return this.find({ author: author }, cb);
 };
 
 pinsSchema.statics.getPinByID = function(id, cb) {
-
 	return this.findOne({ id: id }, cb);
 };
+
 module.exports = mongoose.model('Pins', pinsSchema);

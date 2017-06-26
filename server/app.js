@@ -242,6 +242,36 @@ app.post('/singlepin/:target', (req, res) => {
 	});
 });
 
+app.post('/updatestamp/:target', (req, res) => {
+	const target = req.params.target;
+	Pins.find({id: target}, function (err, pins) {
+		if(!err) {
+			var today = new Date();
+			var date = {day: 0, month: 0, year: 0};
+			date.day   = today.getDate();
+			date.month = today.getMonth() + 1;
+			date.year  = today.getFullYear();
+
+			if(date.day < 10) {
+				date.day = '0' + date.day;
+			}
+
+			if(date.month < 10) {
+				date.month = '0' + date.month
+			}
+
+			pins.timestamp = date;
+
+			pins.save(function(err, updatedPin) {
+				res.send(updatedPin);
+			});
+
+		} else {
+			console.log('err', err);
+		}
+	});
+});
+
 app.post('/imagepin/:target', (req, res) => {
 	const target = req.params.target;
 	Pins.find({id: target}, function (err, pins) {
