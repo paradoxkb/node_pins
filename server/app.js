@@ -257,12 +257,10 @@ app.post('/updatestamp/:target', (req, res) => {
 			}
 
 			if(date.month < 10) {
-				date.month = '0' + date.month
+				date.month = '0' + date.month;
 			}
 
-			date = date.day + '/' + date.month + '/' + date.year;
-
-			pins.timestamp = date;
+			pins.timestamp = date.day + '/' + date.month + '/' + date.year;
 
 			pins.save(function(err, updatedPin) {
 				res.send(updatedPin);
